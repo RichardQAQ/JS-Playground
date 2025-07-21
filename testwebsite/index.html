@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- First load the lessons data -->
+    <script src="lessons.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo">
+            <h1>JavaScript Learning Portal</h1>
+        </div>
+        <nav>
+            <button id="theme-toggle">🌙</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress-indicator"></div>
+                </div>
+                <span id="progress-text">0% Complete</span>
+            </div>
+            <nav class="lesson-nav">
+                <ul id="lesson-list">
+                    <!-- Lesson links will be populated by JavaScript -->
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <section id="lesson-container">
+                <!-- Lesson content will be dynamically loaded here -->
+            </section>
+            
+            <section id="interactive-section">
+                <h3>Try it yourself:</h3>
+                <div class="code-editor-container">
+                    <div class="editor-toolbar">
+                        <button id="run-code">▶ Run</button>
+                        <button id="reset-code">↺ Reset</button>
+                    </div>
+                    <div class="code-panels">
+                        <div class="code-panel">
+                            <h4>Code</h4>
+                            <textarea id="code-editor" spellcheck="false"></textarea>
+                        </div>
+                        <div class="code-panel">
+                            <h4>Output</h4>
+                            <div id="code-output"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="lesson-navigation">
+                <button id="prev-lesson" disabled>← Previous</button>
+                <button id="mark-complete">Mark as Complete</button>
+                <button id="next-lesson" disabled>Next →</button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Created with ❤️ for JavaScript learners | <a href="https://github.com" target="_blank">Source Code</a></p>
+    </footer>
+
+    <script src="editor.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
