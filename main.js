@@ -1,4 +1,4 @@
-const { log } = require("console");
+import { log } from "console";
 
 class Car {
 
@@ -90,6 +90,8 @@ class Car {
     }
 }
 
+export default Car; // Exporting the class for use in other modules
+
 class FastCar extends Car {
     constructor(make, model, speedBonus) {
         super(make, model);
@@ -102,6 +104,8 @@ class FastCar extends Car {
     }
 
 }
+
+export { FastCar }; // Exporting the FastCar class
 
 
 let c1 = new Car('Toyota', 'Camry');
@@ -133,4 +137,3 @@ myCar.displayInfo();
 // Additional example usage
 myCar.speed = 50;    // Uses setter
 let currentSpeed = myCar.speed;  // Uses getter
-

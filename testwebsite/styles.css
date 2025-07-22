@@ -1,27 +1,31 @@
 :root {
-    --primary-color: #f7df1e;
-    --primary-dark: #e6cc00;
-    --text-color: #333;
-    --background-color: #f9f9f9;
-    --card-bg: #ffffff;
-    --sidebar-bg: #f0f0f0;
-    --border-color: #ddd;
-    --code-bg: #282c34;
-    --accent-color: #4c6ef5;
-    --success-color: #37b24d;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Morandi Color Palette */
+    --primary-color: #d4b5a0;      /* Muted terracotta */
+    --primary-dark: #c29d84;       /* Darker terracotta */
+    --text-color: #5c5853;         /* Warm gray */
+    --background-color: #f7f5f3;   /* Soft cream */
+    --card-bg: #ffffff;            /* Pure white */
+    --sidebar-bg: #f0ede8;         /* Light warm gray */
+    --border-color: #e3ddd5;       /* Soft beige */
+    --code-bg: #3e3d39;            /* Dark warm gray */
+    --accent-color: #9a8b7a;       /* Muted brown */
+    --success-color: #a8b5a0;      /* Sage green */
+    --warning-color: #d4a574;      /* Soft orange */
+    --error-color: #c4a5a0;        /* Muted coral */
+    --shadow: 0 4px 6px rgba(92, 88, 83, 0.15);
     --font-code: 'Fira Code', monospace;
     --font-main: 'Roboto', sans-serif;
 }
 
 .dark-theme {
-    --text-color: #e4e4e4;
-    --background-color: #1a1a1a;
-    --card-bg: #2a2a2a;
-    --sidebar-bg: #252525;
-    --border-color: #444;
-    --code-bg: #1e1e1e;
-    --accent-color: #748ffc;
+    --text-color: #d4cfc7;         /* Light warm beige */
+    --background-color: #2c2b27;   /* Dark warm gray */
+    --card-bg: #3a3935;            /* Medium warm gray */
+    --sidebar-bg: #343330;         /* Dark sidebar */
+    --border-color: #4a4843;       /* Dark border */
+    --code-bg: #252520;            /* Very dark warm gray */
+    --accent-color: #b8a898;       /* Light muted brown */
+    --primary-color: #b8a090;      /* Muted light terracotta */
 }
 
 * {
@@ -39,7 +43,7 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -60,19 +64,25 @@ header {
 
 .logo h1 {
     font-size: 1.5rem;
-    color: #000;
+    color: var(--text-color);
+    font-weight: 400;
 }
 
 nav button {
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 nav button:hover {
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .container {
@@ -102,8 +112,9 @@ nav button:hover {
 
 .progress {
     height: 100%;
-    background-color: var(--accent-color);
-    transition: width 0.5s;
+    background: linear-gradient(90deg, var(--accent-color), var(--success-color));
+    transition: width 0.5s ease;
+    border-radius: 4px;
 }
 
 #progress-text {
@@ -129,13 +140,14 @@ nav button:hover {
 }
 
 .lesson-nav a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(154, 139, 122, 0.1);
 }
 
 .lesson-nav a.active {
-    background-color: var(--primary-color);
-    color: #000;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-color);
     font-weight: 500;
+    box-shadow: 0 2px 4px rgba(92, 88, 83, 0.2);
 }
 
 .lesson-nav a.completed {
@@ -147,6 +159,7 @@ nav button:hover {
     position: absolute;
     right: 1rem;
     color: var(--success-color);
+    font-weight: bold;
 }
 
 .content {
@@ -168,6 +181,7 @@ h2 {
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
 h3 {
@@ -204,9 +218,10 @@ pre code {
     margin: 2rem 0;
     padding: 1.5rem;
     border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    background-color: rgba(247, 223, 30, 0.05);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(212, 181, 160, 0.08), rgba(168, 181, 160, 0.08));
     position: relative;
+    backdrop-filter: blur(5px);
 }
 
 .interactive-element::before {
@@ -214,31 +229,33 @@ pre code {
     position: absolute;
     top: -12px;
     left: 1rem;
-    background-color: var(--primary-color);
-    padding: 0.2rem 0.8rem;
-    border-radius: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #000;
+    color: white;
+    box-shadow: 0 2px 4px rgba(92, 88, 83, 0.2);
 }
 
 .interactive-element button {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 6px;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
     margin: 0.5rem 0.5rem 0.5rem 0;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     font-size: 0.9rem;
+    box-shadow: 0 3px 6px rgba(92, 88, 83, 0.2);
 }
 
 .interactive-element button:hover {
-    background-color: #5c7cfa;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(92, 88, 83, 0.25);
 }
 
 .interactive-element button:active {
@@ -248,14 +265,15 @@ pre code {
 .interactive-output {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: var(--card-bg);
-    border-radius: 6px;
-    border-left: 4px solid var(--primary-color);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
     font-family: var(--font-code);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     min-height: 3rem;
     display: flex;
     align-items: center;
+    backdrop-filter: blur(5px);
 }
 
 .interactive-output pre {
@@ -270,12 +288,12 @@ pre code {
 }
 
 .dark-theme .interactive-element {
-    background-color: rgba(247, 223, 30, 0.1);
+    background: linear-gradient(135deg, rgba(184, 160, 144, 0.1), rgba(168, 181, 160, 0.1));
     border-color: var(--primary-color);
 }
 
 .dark-theme .interactive-output {
-    background-color: var(--sidebar-bg);
+    background: rgba(58, 57, 53, 0.8);
     color: var(--text-color);
 }
 
@@ -285,49 +303,55 @@ pre code {
 }
 
 .console-warn {
-    color: #ff9800;
+    color: var(--warning-color);
 }
 
 .console-error {
-    color: #f44336;
+    color: var(--error-color);
 }
 
 .console-info {
-    color: #2196f3;
+    color: var(--accent-color);
 }
 
 .empty-output {
-    color: #999;
+    color: var(--accent-color);
     font-style: italic;
+    opacity: 0.7;
 }
 
 .code-editor-container {
     background-color: var(--card-bg);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     margin: 1rem 0 2rem;
+    border: 1px solid var(--border-color);
 }
 
 .editor-toolbar {
-    background-color: var(--primary-color);
-    padding: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    padding: 0.75rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .editor-toolbar button {
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(92, 88, 83, 0.15);
 }
 
 .editor-toolbar button:hover {
-    background-color: white;
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(92, 88, 83, 0.2);
 }
 
 .code-panels {
@@ -367,8 +391,8 @@ pre code {
 }
 
 #code-output {
-    background-color: #1e1e1e;
-    color: #e4e4e4;
+    background: linear-gradient(135deg, #3e3d39, #2c2b27);
+    color: #d4cfc7;
     padding: 1rem;
     height: 250px;
     overflow-y: auto;
@@ -379,45 +403,58 @@ pre code {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    gap: 1rem;
 }
 
 .lesson-navigation button {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s, opacity 0.2s;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 3px 6px rgba(92, 88, 83, 0.2);
 }
 
 .lesson-navigation button:hover:not(:disabled) {
-    background-color: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(92, 88, 83, 0.25);
 }
 
 .lesson-navigation button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }
 
 #mark-complete {
-    background-color: var(--success-color);
+    background: linear-gradient(135deg, var(--success-color), var(--accent-color));
     color: white;
+}
+
+#mark-complete:hover:not(:disabled) {
+    background: linear-gradient(135deg, #95a58d, var(--accent-color));
 }
 
 footer {
     text-align: center;
     padding: 1.5rem;
-    background-color: var(--sidebar-bg);
+    background: linear-gradient(135deg, var(--sidebar-bg), var(--background-color));
     border-top: 1px solid var(--border-color);
+    color: var(--text-color);
 }
 
 footer a {
     color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
+    color: var(--primary-color);
     text-decoration: underline;
 }
 
